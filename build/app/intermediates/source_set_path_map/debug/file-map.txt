@@ -1,0 +1,13 @@
+com.example.aromtoyproject.app-jetified-annotation-experimental-1.1.0-0 C:\Users\Jun\.gradle\caches\transforms-3\09db32a73384ac2dccccf916d7dc0262\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.aromtoyproject.app-core-1.6.0-1 C:\Users\Jun\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\res
+com.example.aromtoyproject.app-jetified-window-1.0.0-beta04-2 C:\Users\Jun\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\res
+com.example.aromtoyproject.app-jetified-window-java-1.0.0-beta04-3 C:\Users\Jun\.gradle\caches\transforms-3\978180320ed1d29d66a82edc9d24751e\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.aromtoyproject.app-debug-4 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\android\app\src\debug\res
+com.example.aromtoyproject.app-main-5 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\android\app\src\main\res
+com.example.aromtoyproject.app-pngs-6 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\generated\res\pngs\debug
+com.example.aromtoyproject.app-resValues-7 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\generated\res\resValues\debug
+com.example.aromtoyproject.app-rs-8 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\generated\res\rs\debug
+com.example.aromtoyproject.app-mergeDebugResources-9 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.aromtoyproject.app-mergeDebugResources-10 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.aromtoyproject.app-merged_res-11 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\app\intermediates\merged_res\debug
+com.example.aromtoyproject.app-packaged_res-12 C:\Users\Jun\Desktop\code\Project\Flutter\ToDo\build\path_provider_android\intermediates\packaged_res\debug

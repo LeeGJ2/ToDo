@@ -2,8 +2,12 @@ import 'package:aromtoyproject/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:aromtoyproject/ui/theme.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('myBox');
+
   runApp(const MyApp());
 }
 
@@ -17,8 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: Themes.dark,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(), 
+      home: const HomeScreen(),
     );
   }
 }
-
