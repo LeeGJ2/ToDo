@@ -1,23 +1,34 @@
 import 'package:hive_flutter/adapters.dart';
+import 'package:uuid/uuid.dart';
+
+part 'task.g.dart';
+
+var uuid = const Uuid();
 
 @HiveType(typeId: 0)
 class Task {
   @HiveField(0)
-  int? id;
+  final String id;
   @HiveField(1)
-  String? title;
+  final String title;
   @HiveField(2)
-  String? task;
+  final String task;
   @HiveField(3)
-  int? isCompleted;
+  final int isCompleted;
   @HiveField(4)
-  String? date;
+  final DateTime date;
+  @HiveField(5)
+  final String startTime;
+  @HiveField(6)
+  final String endTime;
 
-  Task({
-    this.id,
-    this.title,
-    this.task,
-    this.isCompleted,
-    this.date,
-  });
+  Task(
+      {String? id,
+      required this.title,
+      required this.task,
+      required this.isCompleted,
+      required this.date,
+      required this.startTime,
+      required this.endTime})
+      : id = id ?? uuid.v4();
 }

@@ -1,3 +1,4 @@
+import 'package:aromtoyproject/model/task.dart';
 import 'package:aromtoyproject/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(TaskAdapter());
   await Hive.openBox('myBox');
 
   runApp(const MyApp());
