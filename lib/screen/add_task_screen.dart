@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:aromtoyproject/ui/theme.dart';
@@ -166,13 +165,30 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
                   )
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    for (int i = 0; i < box.length; i++) {
+                      Task saveTask = box.getAt(i);
+                      print(saveTask.id);
+                    }
+                  },
+                  child: const Text('check')),
             ],
           ),
         ),
       ),
       bottomSheet: ElevatedButton(
           onPressed: () {
+            if (titleController.text.toString().length == 0 ||
+                taskController.text.toString().length == 0) {
+              print('error');
+              return;
+            }
+
             Task task = Task(
                 title: titleController.text.toString(),
                 task: taskController.text.toString(),
@@ -182,7 +198,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 endTime: endTime);
 
             box.put(task.id, task);
-            print(box.get('id'));
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(10),
