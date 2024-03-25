@@ -1,6 +1,7 @@
 import 'package:aromtoyproject/model/task.dart';
 import 'package:aromtoyproject/screen/add_task_screen.dart';
 import 'package:aromtoyproject/services/theme_services.dart';
+import 'package:aromtoyproject/ui/task_tile.dart';
 import 'package:aromtoyproject/ui/theme.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => AddTaskScreen(),
-                  ));
+                  )).then((value) {
+                setState(() {});
+              });
             },
             icon: Icon(Icons.add)),
       ],
@@ -111,55 +114,14 @@ class _HomeScreenState extends State<HomeScreen> {
         onRefresh: _onRefresh,
         child: ListView.builder(
           itemBuilder: (context, index) {
-            Task loadTask = box.getAt(index);
-            if (DateFormat('yyyy-MM-dd').format(loadTask.date) ==
-                DateFormat('yyyy-MM-dd').format(selectedDate)) {
-              return taskView(loadTask);
-            } else {
-              return null;
-            }
+            final Task loadTask = box.getAt(index);
+            bool res = ((DateFormat('yyyy-MM-dd').format(loadTask.date)) ==
+                (DateFormat('yyyy-MM-dd').format(selectedDate)));
+            return TaskTile(loadTask, selectedDate);
           },
           itemCount: box.length,
         ),
       ),
     );
-  }
-
-  taskView(Task task) {
-    return Container(
-        margin: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Get.isDarkMode ? Colors.black : Colors.white,
-          border: Border.all(
-            width: 1.0,
-            color: Get.isDarkMode ? Colors.white : Colors.black,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Text(task.title),
-              Text(task.task),
-              Row(
-                children: [
-                  Text(task.startTime),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(task.endTime),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          ),
-        ));
   }
 }

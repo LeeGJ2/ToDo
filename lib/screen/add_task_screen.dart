@@ -29,185 +29,200 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              Text(
-                '일정 추가',
-                style: titleStyle,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '제목',
-                    style: subTitleStyle,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: titleController,
-                decoration: InputDecoration(
-                  labelText: '제목을 입력하세요',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+        body: Form(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 50,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '내용',
-                    style: subTitleStyle,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: taskController,
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 100.0),
-                    labelText: '내용을 입력하세요',
+                Text(
+                  '일정 추가',
+                  style: titleStyle,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '제목',
+                      style: subTitleStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: titleController,
+                  decoration: InputDecoration(
+                    labelText: '제목을 입력하세요',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10))),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 5,
+                        borderRadius: BorderRadius.circular(10)),
                   ),
-                  Text(
-                    '날짜',
-                    style: subTitleStyle,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                canRequestFocus: false,
-                decoration: InputDecoration(
-                  labelText: DateFormat('yyyy-MM-dd').format(selectedDate),
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.date_range_outlined),
-                    onPressed: () async {
-                      DateTime? pickedDate = await showDatePicker(
-                        context: context,
-                        firstDate: DateTime(2015),
-                        lastDate: DateTime(2050),
-                        initialDate: selectedDate,
-                      );
-
-                      if (pickedDate != null) {
-                        setState(() {
-                          selectedDate = pickedDate;
-                        });
-                      }
-                    },
-                  ),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      canRequestFocus: false,
-                      decoration: InputDecoration(
-                          labelText: startTime,
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.watch_later_outlined),
-                            onPressed: () => getTimeFromUser(isStartTime: true),
-                          )),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 5,
                     ),
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      canRequestFocus: false,
-                      decoration: InputDecoration(
-                          labelText: endTime,
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.watch_later_outlined),
-                            onPressed: () =>
-                                getTimeFromUser(isStartTime: false),
-                          )),
+                    Text(
+                      '내용',
+                      style: subTitleStyle,
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    for (int i = 0; i < box.length; i++) {
-                      Task saveTask = box.getAt(i);
-                      print(saveTask.id);
-                    }
-                  },
-                  child: const Text('check')),
-            ],
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: taskController,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 100.0),
+                      labelText: '내용을 입력하세요',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '날짜',
+                      style: subTitleStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  canRequestFocus: false,
+                  decoration: InputDecoration(
+                    labelText: DateFormat('yyyy-MM-dd').format(selectedDate),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.date_range_outlined),
+                      onPressed: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          firstDate: DateTime(2015),
+                          lastDate: DateTime(2050),
+                          initialDate: selectedDate,
+                        );
+
+                        if (pickedDate != null) {
+                          setState(() {
+                            selectedDate = pickedDate;
+                          });
+                        }
+                      },
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        canRequestFocus: false,
+                        decoration: InputDecoration(
+                            labelText: startTime,
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.watch_later_outlined),
+                              onPressed: () =>
+                                  getTimeFromUser(isStartTime: true),
+                            )),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        canRequestFocus: false,
+                        decoration: InputDecoration(
+                            labelText: endTime,
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.watch_later_outlined),
+                              onPressed: () =>
+                                  getTimeFromUser(isStartTime: false),
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-      bottomSheet: ElevatedButton(
-          onPressed: () {
-            if (titleController.text.toString().length == 0 ||
-                taskController.text.toString().length == 0) {
-              print('error');
-              return;
-            }
+        bottomSheet: addTaskButton());
+  }
 
-            Task task = Task(
-                title: titleController.text.toString(),
-                task: taskController.text.toString(),
-                isCompleted: 0,
-                date: selectedDate,
-                startTime: startTime,
-                endTime: endTime);
+  addTaskButton() {
+    return ElevatedButton(
+        onPressed: () {
+          if (titleController.text.toString().isEmpty ||
+              taskController.text.toString().isEmpty) {
+            showDialog(
+              context: context,
+              barrierDismissible: true,
+              builder: (context) {
+                return AlertDialog(
+                  content: Text('제목과 내용은 필수 사항입니다.'),
+                  actions: [
+                    Center(
+                      child: ElevatedButton(
+                        child: Icon(Icons.check, size: 12),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    )
+                  ],
+                );
+              },
+            );
+            return;
+          }
 
-            box.put(task.id, task);
-          },
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.all(10),
-            minimumSize: const Size.fromHeight(50),
-          ),
-          child: Text(
-            '추가하기',
-            style: bodyStyle,
-          )),
-    );
+          Task task = Task(
+              title: titleController.text.toString(),
+              task: taskController.text.toString(),
+              isCompleted: 0,
+              date: selectedDate,
+              startTime: startTime,
+              endTime: endTime);
+
+          box.put(task.id, task);
+          Navigator.pop(context);
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.all(10),
+          minimumSize: const Size.fromHeight(50),
+        ),
+        child: Text(
+          '추가하기',
+          style: bodyStyle,
+        ));
   }
 
   getDateFromUser() async {
