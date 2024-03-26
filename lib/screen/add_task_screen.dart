@@ -187,14 +187,20 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               barrierDismissible: true,
               builder: (context) {
                 return AlertDialog(
-                  content: Text('제목과 내용은 필수 사항입니다.'),
+                  content: const Text(
+                    '제목과 내용은 필수 사항입니다.',
+                    textAlign: TextAlign.center,
+                  ),
                   actions: [
                     Center(
                       child: ElevatedButton(
-                        child: Icon(Icons.check, size: 12),
+                        child: const Icon(Icons.check, size: 12),
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(30),
+                        ),
                       ),
                     )
                   ],
